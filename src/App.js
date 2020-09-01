@@ -1,26 +1,45 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { Container, Menu, PageBody } from './AppStyled';
+
+import HomeScreen from './pages/HomeScreen';
+import Tela2Screen from './pages/Tela2Screen';
+
+import MenuItem from './components/MenuItem';
+
+export default () => {
+    const name = useSelector(state => state.user.name);
+
+    return (
+        <BrowserRouter>
+                <Container>
+                    <Menu>
+                        <MenuItem icon="/assets/store.png" link="/"/>
+                        <MenuItem icon="/assets/order.png" link="/order"/>
+                        <MenuItem icon="/assets/profile.png" link="/profile"/>
+
+                    </Menu>
+                    <PageBody>
+                            <Switch>
+                        <Route exact path="/">
+                            <HomeScreen />
+                        </Route>
+                        <Route path="/order">
+                            <div>Tela de Pedidos</div>
+                        </Route>
+                        <Route path="/profile">
+                            <div>Tela de Perfil</div>
+                        </Route>
+                        <Route path="/tela2/:nome">
+                            <Tela2Screen />
+                        </Route>
+                    </Switch>
+
+                    </PageBody>
+                </Container>
+          
+        </BrowserRouter>
+    );
 }
-
-export default App;
