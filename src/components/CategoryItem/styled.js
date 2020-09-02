@@ -12,8 +12,5 @@ export const CategoryArea = styled.div`
 
 `;
 
-export const CategoryList = styled.div`
-            display: felx;
-            margin: 10px;
+export const CategoryList = styled.div``;
 
-`;

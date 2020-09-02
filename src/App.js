@@ -7,7 +7,9 @@ import { Container, Menu, PageBody } from './AppStyled';
 import HomeScreen from './pages/HomeScreen'
 import Tela2Screen from './pages/Tela2Screen';
 
+import PrivateRoute from './components/PrivateRoute';
 import MenuItem from './components/MenuItem';
+import Cart from './components/cart';
 
 export default () => {
     const name = useSelector(state => state.user.name);
@@ -26,18 +28,19 @@ export default () => {
                         <Route exact path="/">
                             <HomeScreen />
                         </Route>
-                        <Route path="/order">
+                        <PrivateRoute path="/order">
                             <div>Tela de Pedidos</div>
-                        </Route>
-                        <Route path="/profile">
+                        </PrivateRoute>
+                        <PrivateRoute path="/profile">
                             <div>Tela de Perfil</div>
-                        </Route>
+                        </PrivateRoute>
                         <Route path="/tela2/:nome">
                             <Tela2Screen />
                         </Route>
                     </Switch>
 
                     </PageBody>
+                    <Cart/>
                 </Container>
           
         </BrowserRouter>

@@ -20,6 +20,6 @@ flex-direction: column;
 
 export const PageBody = styled.div`
 display: flex;
-background-color: #edb92b;
+background-image: url('/assets/bb.jpg');
 flex: 1;
 `;
