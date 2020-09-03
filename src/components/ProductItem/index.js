@@ -8,14 +8,15 @@ import{
     productName,
     productPrice,
     ProductIngredients,
-    ProductButton 
+    ProductButton
+    
 } from './styled';
 
-export default () => {
+export default (data) => {
     return(
         <Container>
             <ProductPhotoArea>
-                <ProductPhoto src={Data.image}/>
+                <ProductPhoto src={data.image}/>
 
             </ProductPhotoArea>
 

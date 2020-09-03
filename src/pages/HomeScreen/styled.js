@@ -17,3 +17,7 @@ export const CategoryList = styled.div`
             margin: 10px;
 
 `;
+
+export const ProductArea = styled.div``;
+
+export const ProductList = styled.div``;
